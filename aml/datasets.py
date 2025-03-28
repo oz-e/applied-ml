@@ -57,29 +57,29 @@ class AMLDataset(torchvision.datasets.VisionDataset):
         return img, target, item[2]
 
 class Caltech101(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('caltech101', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('caltech101', *args, **kwargs)
 
 class OxfordIIITPet(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('oxfordpets', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('oxfordpets', *args, **kwargs)
 
 class Flowers102(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('flowers102', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('flowers102', *args, **kwargs)
 
 class Food101(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('food101', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('food101', *args, **kwargs)
 
 class DTD(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('dtd', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('dtd', *args, **kwargs)
 
 class EuroSAT(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('eurosat', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('eurosat', *args, **kwargs)
 
 class UCF101(AMLDataset):
-    def __init__(self, *args):
-        super().__init__('ucf101', *args)
+    def __init__(self, *args, **kwargs):
+        super().__init__('ucf101', *args, **kwargs)
