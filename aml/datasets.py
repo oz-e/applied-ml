@@ -56,8 +56,8 @@ class AMLDataset(torchvision.datasets.VisionDataset):
 
         img = PIL.Image.open(os.path.join(self.img_folder, impath))
 
-        if self.transforms is not None:
-            img, label = self.transforms(img, label)
+        # if self.transforms is not None:
+        #     img, label = self.transforms(img, label)
 
         if self.transform is not None:
             img = self.transform(img)
