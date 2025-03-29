@@ -20,65 +20,123 @@ datasets_list = {
     'ucf101'    : (download_ucf101,                     'ucf101',           'UCF-101-midframes',    '1I0S0q91hJfsV9Gf4xDIjgDq4AqBNJb1y'),
 }
 
+
 class AMLDataset(torchvision.datasets.VisionDataset):
     def __init__(self, dataset_name, root, split: str='train', transforms=None, transform=None, target_transform=None):
         dataset_info = datasets_list[dataset_name]
+
+        # Download the dataset with the help of torchvision.datasets object
         dataset_info[0](root, download=True)
+
+        # Since torchvision.datasets put data inside a subfolder, we change path into this new root folder, and store everything inside it
         root = os.path.join(root, dataset_info[1])
         super().__init__(root, transforms, transform, target_transform)
 
+        # Images are further inside the new root folder
         self.img_folder = os.path.join(root, dataset_info[2])
-        split_file_path = os.path.join(root, 'split.json')
 
+        # Download json inside the new root folder
+        split_file_path = os.path.join(root, 'split.json')
         if not os.path.exists(split_file_path):
             gdown.download(id=dataset_info[3], output=split_file_path)
 
+        # Read json file, resulting in a dict[str('train', 'val', 'test'), list[str(impath), int(label), str(classname)]]
         with open(split_file_path, 'r') as f:
-            self._items = json.load(f)[split]
+            data_source = json.load(f)
+
+        self._items = data_source[split]
+        self._num_classes = self.get_num_classes(data_source['train'])
+        self._lab2cname, self._classnames = self.get_lab2cname(data_source['train'])
 
     def __len__(self):
         return len(self._items)
 
     def __getitem__(self, index):
-        item = self._items[index]
+        impath, label, classname = self._items[index]
 
-        img = PIL.Image.open(os.path.join(self.img_folder, item[0]))
-        target = item[1]
+        img = PIL.Image.open(os.path.join(self.img_folder, impath))
 
         if self.transforms is not None:
-            img, target = self.transforms(img, target)
+            img, label = self.transforms(img, label)
 
         if self.transform is not None:
             img = self.transform(img)
 
         if self.target_transform is not None:
-            target = self.target_transform(target)
+            label = self.target_transform(label)
 
-        return img, target, item[2]
+        return img, label
+
+    @property
+    def lab2cname(self):
+        return self._lab2cname
+
+    @property
+    def classnames(self):
+        return self._classnames
+
+    @property
+    def num_classes(self):
+        return self._num_classes
+
+    @staticmethod
+    def get_num_classes(data_source):
+        """Count number of classes.
+
+        Args:
+            data_source (list): a list of Datum objects.
+        """
+        label_set = set()
+        for impath, label, classname in data_source:
+            label_set.add(label)
+        return max(label_set) + 1
+
+    @staticmethod
+    def get_lab2cname(data_source):
+        """Get a label-to-classname mapping (dict).
+
+        Args:
+            data_source (list): a list of Datum objects.
+        """
+        container = set()
+        for impath, label, classname in data_source:
+            container.add((label, classname))
+        mapping = {label: classname for label, classname in container}
+        labels = list(mapping.keys())
+        labels.sort()
+        classnames = [mapping[label] for label in labels]
+        return mapping, classnames
+
 
 class Caltech101(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('caltech101', *args, **kwargs)
 
+
 class OxfordIIITPet(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('oxfordpets', *args, **kwargs)
+
 
 class Flowers102(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('flowers102', *args, **kwargs)
 
+
 class Food101(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('food101', *args, **kwargs)
+
 
 class DTD(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('dtd', *args, **kwargs)
 
+
 class EuroSAT(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('eurosat', *args, **kwargs)
+
 
 class UCF101(AMLDataset):
     def __init__(self, *args, **kwargs):
