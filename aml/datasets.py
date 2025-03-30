@@ -148,6 +148,10 @@ class FGVCAircraft(torchvision.datasets.FGVCAircraft):
         super().__init__(root, *args, download=True, **kwargs)
 
     @property
+    def lab2cname(self):
+        return self.classes
+
+    @property
     def classnames(self):
         return self.classes
 
