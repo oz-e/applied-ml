@@ -141,3 +141,16 @@ class EuroSAT(AMLDataset):
 class UCF101(AMLDataset):
     def __init__(self, *args, **kwargs):
         super().__init__('ucf101', *args, **kwargs)
+
+
+class FGVCAircraft(torchvision.datasets.FGVCAircraft):
+    def __init__(self, root, *args, **kwargs):
+        super().__init__(root, *args, download=True, **kwargs)
+
+    @property
+    def classnames(self):
+        return self.classes
+
+    @property
+    def num_classes(self):
+        return len(self.classes)
