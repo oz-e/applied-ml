@@ -13,43 +13,43 @@ eurosat_dataset_train = aml.datasets.EuroSAT(datasets_path, split='train')
 ucf101_dataset_train = aml.datasets.UCF101(datasets_path, split='train')
 ```
 
-To get class names from label, use the dict `lab2cname`
-To get a sorted list of class names, use the list `classnames`
+To get class names from label, use the dict `lab2cname`\
+To get a sorted list of class names, use the list `classnames`\
 To get total num of classes, use `num_classes`
 
 
 # CuPL
-caltech:
-Top-1 accuracy standard: 93.06
-Top-1 accuracy CuPL: 94.20
+caltech:\
+Top-1 accuracy standard: 93.06\
+Top-1 accuracy CuPL: 94.20\
 Top-1 accuracy both: 93.67
 
-pets:
-Top-1 accuracy standard: 93.06
-Top-1 accuracy CuPL: 94.20
+pets:\
+Top-1 accuracy standard: 93.06\
+Top-1 accuracy CuPL: 94.20\
 Top-1 accuracy both: 93.67
 
-flower:
-Top-1 accuracy standard: 65.98
-Top-1 accuracy CuPL: 73.93
+flower:\
+Top-1 accuracy standard: 65.98\
+Top-1 accuracy CuPL: 73.93\
 Top-1 accuracy both: 68.98
 
-food:
-Top-1 accuracy standard: 83.84
-Top-1 accuracy CuPL: 86.02
+food:\
+Top-1 accuracy standard: 83.84\
+Top-1 accuracy CuPL: 86.02\
 Top-1 accuracy both: 85.06
 
-airplane:
-Top-1 accuracy standard: 23.64
-Top-1 accuracy CuPL: 27.93
+airplane:\
+Top-1 accuracy standard: 23.64\
+Top-1 accuracy CuPL: 27.93\
 Top-1 accuracy both: 25.68
 
-dtd:
-Top-1 accuracy standard: 45.04
-Top-1 accuracy CuPL: 53.43
+dtd:\
+Top-1 accuracy standard: 45.04\
+Top-1 accuracy CuPL: 53.43\
 Top-1 accuracy both: 48.17
 
-ucf:
-Top-1 accuracy standard: 65.08
-Top-1 accuracy CuPL: 70.34
+ucf:\
+Top-1 accuracy standard: 65.08\
+Top-1 accuracy CuPL: 70.34\
 Top-1 accuracy both: 68.09
