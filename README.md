@@ -25,9 +25,9 @@ Top-1 accuracy CuPL: 94.20\
 Top-1 accuracy both: 93.67
 
 pets:\
-Top-1 accuracy standard: 93.06\
-Top-1 accuracy CuPL: 94.20\
-Top-1 accuracy both: 93.67
+Top-1 accuracy standard: 87.05\
+Top-1 accuracy CuPL: 91.22\
+Top-1 accuracy both: 88.53
 
 flower:\
 Top-1 accuracy standard: 65.98\
