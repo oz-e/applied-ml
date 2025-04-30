@@ -109,8 +109,26 @@ class AMLDataset(torchvision.datasets.VisionDataset):
 
 
 class Caltech101(AMLDataset):
-    def __init__(self, *args, **kwargs):
-        super().__init__('caltech101', *args, **kwargs)
+    def __init__(self, root, *args, **kwargs):
+        from urllib.error import HTTPError
+        try:
+            super().__init__('caltech101', root, *args, **kwargs)
+        except HTTPError:
+            # Use the copy hosted by Terry
+            from torchvision.datasets.utils import download_and_extract_archive
+            download_and_extract_archive(
+                'https://drive.google.com/file/d/1IFqrvpdbrpmI6DPntopcPY6svPu04uYD',
+                os.path.join(root, 'caltech101'),
+                filename='101_ObjectCategories.tar.gz',
+                md5='b224c7392d521a49829488ab0f1120d9',
+            )
+            download_and_extract_archive(
+                'https://drive.google.com/file/d/1sW96Lj6yLIujKpopd8tBrIO_NCaKBy5d',
+                os.path.join(root, 'caltech101'),
+                filename='Annotations.tar',
+                md5='6f83eeb1f24d99cab4eb377263132c91',
+            )
+            super().__init__('caltech101', root, *args, **kwargs)
 
 
 class OxfordIIITPet(AMLDataset):
