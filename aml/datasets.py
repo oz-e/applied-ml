@@ -164,10 +164,11 @@ class UCF101(AMLDataset):
 class FGVCAircraft(torchvision.datasets.FGVCAircraft):
     def __init__(self, root, *args, **kwargs):
         super().__init__(root, *args, download=True, **kwargs)
+        self._lab2cname = {i: self.classes[i] for i in range(len(self.classes))}
 
     @property
     def lab2cname(self):
-        return self.classes
+        return self._lab2cname
 
     @property
     def classnames(self):
