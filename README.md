@@ -9,3 +9,9 @@ View CoOP/ReadMe.md for CoOp implmentation details and configuations.
 # CoCoOp
 
 Please run CoCoOp_Analysis.ipynb ([open in Colab](https://colab.research.google.com/github/oz-e/applied-ml/blob/main/CoCoOp_Analysis.ipynb)). This will train CoCoOp prompt learner on Oxford Flowers downloaded from a Google Drive link, 16 shot for 10 epochs, then generate visualisations afterwards using data saved in `cocoop_prompts.pt`. Runs fastest on A100 (~30 mins). Up to ~150 mins on Colab free.
+
+# Tip_Adapter:
+
+Download the zip file from the mentioned link and extract it. Place the Data folder in this Folder. And run the tip_adapter.ipynb file.
+
+Link: https://drive.google.com/file/d/12timK5svz_vyRgb4YYjzlRBJtmIMI8D8/view?usp=drive_link
