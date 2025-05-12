@@ -8,16 +8,15 @@ This notebook demonstrates the results of CoOp on the Caltech101 dataset using t
 
 CoOp Configuration
 ```python
-test_dataset_name = 'caltech'   #['airplane', 'caltech', 'dtd', 'flower', 'food', 'pets', 'ucf']
-model_name = "ViT-B/16" #['RN50', 'RN101', 'RN50x4', 'RN50x16', 'ViT-B/32', 'ViT-B/16']
-#CoOp Parameters
+test_dataset_name = 'caltech' 
+model_name = "ViT-B/16"
 NUM_SHOTS = 16
 SEED = 1
-n_ctx = 16  # few shot learning (1,2,....16)
-ctx_init = ""  # context vector, currently not initialized
-class_token_position = "end"  #["front", "middle", "end"]
-csc = False  # For using the class specific context
-input_size = 224  # Input Image Size
+n_ctx = 16 
+ctx_init = "" 
+class_token_position = "end"  
+csc = False 
+input_size = 224 
 ```
 Training Loop Configuration
 ```python
