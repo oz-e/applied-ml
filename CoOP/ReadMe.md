@@ -1,5 +1,5 @@
 # CoOp
-This document helps you run the CoOP.ipynb file located in the CoOp folder.”
+This document helps you run the CoOP.ipynb file.”
 
 Before running the notebook, please update the configuration settings in the first cell.
 This notebook demonstrates the results of CoOp on the Caltech101 dataset using the provided configuration.
