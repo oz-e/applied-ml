@@ -1,7 +1,8 @@
 # CoOp
-This document helps u run the CoOP.ipynb file under "CoOP/"
+This document helps you run the CoOP.ipynb file located in the CoOp folder.”
 
-Before running the notebook, set the model configurations in the beginning of the notebook. (The notebook displays the result of CoOP on caltech with exisiting Configuration.)
+Before running the notebook, please update the configuration settings in the first cell.
+This notebook demonstrates the results of CoOp on the Caltech101 dataset using the provided configuration.
 
 ## Configs
 
@@ -13,7 +14,7 @@ model_name = "ViT-B/16" #['RN50', 'RN101', 'RN50x4', 'RN50x16', 'ViT-B/32', 'ViT
 NUM_SHOTS = 16
 SEED = 1
 n_ctx = 16  # few shot learning (1,2,....16)
-ctx_init = ""  # context vector, rn its not initialized
+ctx_init = ""  # context vector, currently not initialized
 class_token_position = "end"  #["front", "middle", "end"]
 csc = False  # For using the class specific context
 input_size = 224  # Input Image Size
