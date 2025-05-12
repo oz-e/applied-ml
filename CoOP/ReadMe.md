@@ -10,7 +10,7 @@ CoOp Configuration
 ```python
 test_dataset_name = 'caltech'   #['airplane', 'caltech', 'dtd', 'flower', 'food', 'pets', 'ucf']
 model_name = "ViT-B/16" #['RN50', 'RN101', 'RN50x4', 'RN50x16', 'ViT-B/32', 'ViT-B/16']
-# mention all the parameters
+#CoOp Parameters
 NUM_SHOTS = 16
 SEED = 1
 n_ctx = 16  # few shot learning (1,2,....16)
