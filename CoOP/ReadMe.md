@@ -10,7 +10,6 @@ CoOp Configuration
 ```python
 test_dataset_name = 'caltech' 
 model_name = "ViT-B/16"
-#CoOp Parameters
 NUM_SHOTS = 16
 SEED = 1
 n_ctx = 16 
