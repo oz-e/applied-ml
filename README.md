@@ -6,8 +6,7 @@ To observe the attention map, please run attn_map.ipynb ([open in Colab](https:/
 Please run CoOP.ipynb ([open in Colab](https://colab.research.google.com/github/oz-e/applied-ml/blob/main/CoOP/CoOP.ipynb))<br/><br/>
 The configuration provided below was used to generate the results demonstrated in this notebook. To use a different dataset and config, simply modify the parameters accordingly.
 
-## Configs
-
+Configs
 CoOp Configuration
 ```python
 test_dataset_name = 'caltech'       # Dataset name
