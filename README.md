@@ -8,4 +8,4 @@ View CoOP/ReadMe.md for CoOp implmentation details and configuations.
 
 # CoCoOp
 
-Please run CoCoOp-Analysis.ipynb. This will train CoCoOp prompt learner on Oxford Flowers downloaded from a Google Drive link, 16 shot for 10 epochs, then generate visualisations afterwards using data saved in `cocoop_prompts.pt`. Runs fastest on A100 (~30 mins). Up to ~150 mins on Colab free.
+Please run CoCoOp_Analysis.ipynb ([open in Colab](https://colab.research.google.com/github/oz-e/applied-ml/blob/main/CoCoOp_Analysis.ipynb)). This will train CoCoOp prompt learner on Oxford Flowers downloaded from a Google Drive link, 16 shot for 10 epochs, then generate visualisations afterwards using data saved in `cocoop_prompts.pt`. Runs fastest on A100 (~30 mins). Up to ~150 mins on Colab free.
